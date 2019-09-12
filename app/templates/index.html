@@ -7,6 +7,9 @@
     <title>{{ title }}</title>
 </head>
 <body>
-    <h1>hey youuuuuuuu</h1>
+    <h1>News articles</h1>
+    {% for popular_article in popular %}
+    <li>{{popular_article.name}}</li>
+    {% endfor %}
 </body>
 </html>
