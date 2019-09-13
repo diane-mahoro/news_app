@@ -8,13 +8,10 @@ base_url=None
 def configure_request(app):
     global api_key,base_url
     api_key = app.config['MY_API_KEY']
-    base_url = app.config['news_base_url']
-# api_key=app.config['MY_API_KEY']
-
-# base_url=app.config["news_base_url"]
+    base_url = app.config['NEWS_BASE_URL']
 
 def get_news(category):
-    get_news_url=base_url.format(api_key)
+    get_news_url=base_url.format(category,api_key)
 
     with urllib.request.urlopen(get_news_url) as url:
         news_results=None

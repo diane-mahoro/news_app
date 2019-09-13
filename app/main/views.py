@@ -1,5 +1,5 @@
 from flask import render_template,request,redirect,url_for
-from app import app
+# from app import app
 from . import main
 from ..requests import get_news
 
@@ -10,4 +10,4 @@ from ..requests import get_news
 def index():
     title='news_article'
     popular_articles=get_news('general')
-    return render_template('index.html',title=title, popular=popular_articles)
+    return render_template('index.html',title=title, general=popular_articles)
