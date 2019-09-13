@@ -15,6 +15,8 @@ def get_news(category):
 
     with urllib.request.urlopen(get_news_url) as url:
         news_results=None
+        getNews_data=url.read()
+        get_news_response=json.loads(getNews_data)
         if get_news_response['sources']:
             
             news_results_list=get_news_response['sources']
@@ -33,10 +35,11 @@ def process_results(news_list):
         country=news_item.get('country')
         poster=news_item.get('url')
         if poster:
-            news_object=News(id,name,poster,description,country)
+            news_object=Sources(id,name,poster,description,country)
             news_results.append(news_object)
-    return movie_results
-
+    return news_results
+# def get_source(id):
+#         get_movie_details
 
 
 

@@ -1,34 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ title }}</title>
-</head>
-{% import 'macros.html' as macro%}
 
-<body>
-    <h1>general articles</h1>
-    <ul>
-    <!-- {% for general_article in general %}
-    <li>{{general_article.name}}</li>
-    {% endfor %} -->
-    {{ macro.displayNewsList(general)}}
-    </ul>
-    <h1>business articles</h1>
-    <ul>
-    <!-- {% for business_article in business %}
-    <li>{{business_article.name}}</li>
-    {% endfor %} -->
-    {{ macro.displayNewsList(general)}}
-    </ul>
-    <h1>Sport articles</h1>
-    <ul>
-    <!-- {% for sport_article in sport %}
-    <li>{{sport_article.name}}</li>
-    {% endfor %} -->
-    {{ macro.displayNewsList(general)}}
-    </ul>
-</body>
-</html>
+{% extends 'base.html'%}
+{%block content%}
+
+
+    <div class="container">
+        
+        <h1>general articles</h1>
+        <ul>
+            {% for general_article in general %}
+            <li> Name:{{general_article.name}}</li>
+            <li> description:{{general_article.description}}</li>
+            <li> url:{{general_article.url}}</li>
+
+            {% endfor %}
+        </ul>
+      <h2>businesses news</h2>
+        <ul>
+            {% for businesses in business %}
+            <li>{{businesses.name}}</li>
+            {%endfor%}
+        </ul>
+    </div>
+{%endblock%}

@@ -9,7 +9,8 @@ from ..requests import get_news
 @main.route('/')
 def index():
     title='news_article'
-    general_articles=get_news('general')
-    business_articles=get_news('businesses')
-    sport_articles=get_news('sports')
-    return render_template('index.html',title=title, general=general_articles, business=business_articles,sport=sport_articles)
+    # general_articles=get_news('technology')
+    general=get_news('technology')
+    business=get_news('business')
+    # sport_articles=get_news('sport')
+    return render_template('index.html', title=title,general=general, business=business)

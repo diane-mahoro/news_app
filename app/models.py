@@ -11,3 +11,12 @@ class Sources:
 
 # class Review:
 
+class Articles:
+
+    def __init__(self,source,author,title,description,url,datepub):
+        self.source=source
+        self.author=author
+        self.title=title
+        self.description=description
+        self.url=url
+        self.datepub=datepub
