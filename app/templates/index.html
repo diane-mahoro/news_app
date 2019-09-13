@@ -6,24 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ title }}</title>
 </head>
+{% import 'macros.html' as macro%}
+
 <body>
     <h1>general articles</h1>
     <ul>
-    {% for general_article in general %}
+    <!-- {% for general_article in general %}
     <li>{{general_article.name}}</li>
-    {% endfor %}
+    {% endfor %} -->
+    {{ macro.displayNewsList(general)}}
     </ul>
     <h1>business articles</h1>
     <ul>
-    {% for business_article in business %}
+    <!-- {% for business_article in business %}
     <li>{{business_article.name}}</li>
-    {% endfor %}
+    {% endfor %} -->
+    {{ macro.displayNewsList(general)}}
     </ul>
     <h1>Sport articles</h1>
     <ul>
-    {% for sport_article in sport %}
+    <!-- {% for sport_article in sport %}
     <li>{{sport_article.name}}</li>
-    {% endfor %}
+    {% endfor %} -->
+    {{ macro.displayNewsList(general)}}
     </ul>
 </body>
 </html>
