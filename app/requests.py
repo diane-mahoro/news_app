@@ -54,5 +54,21 @@ def get_article(author):
             article_results=process_articles(article_results_list)
     return article_results
 
+def process_articles(articles_list):
+    article_results=[]
+    for article_item in article_list:
+        source=article_item.get('source')
+        author=article_item.get('author')
+        titles=article_item.get('title')
+        description=article_item.get('description')
+        url=article_item.get('url')
+        datepub=article_item.get('publishedAt')
+        if url:
+            articles_object=Articles(source,author,titles,description,url,datepub)
+            article_results.append(articles_object)
+
+    return article_results
+
+
 
 
