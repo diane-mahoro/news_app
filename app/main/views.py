@@ -12,5 +12,7 @@ def index():
     # general_articles=get_news('technology')
     general=get_news('technology')
     business=get_news('business')
+    sports=get_news('sports')
+
     # sport_articles=get_news('sport')
-    return render_template('index.html', title=title,general=general, business=business)
+    return render_template('index.html', title=title,general=general, business=business, sports=sports)

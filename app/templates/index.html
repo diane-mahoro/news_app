@@ -1,24 +1,43 @@
-
 {% extends 'base.html'%}
 {%block content%}
 
 
-    <div class="container">
-        
-        <h1>general articles</h1>
-        <ul>
-            {% for general_article in general %}
-            <li> Name:{{general_article.name}}</li>
-            <li> description:{{general_article.description}}</li>
-            <li> url:{{general_article.url}}</li>
+<div class="container">
 
-            {% endfor %}
-        </ul>
-      <h2>businesses news</h2>
-        <ul>
-            {% for businesses in business %}
-            <li>{{businesses.name}}</li>
-            {%endfor%}
-        </ul>
+    <h1>News categories source</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>TECHNOLOGY News Sources</h2>
+            <ul>
+                {% for general_article in general %}
+                <li> Name:{{general_article.name}}</li>
+                <li> description:{{general_article.description}}</li>
+                <li> url:{{general_article.url}}</li>
+
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h2>Businesses news Sources</h2>
+            <ul>
+                {% for businesses in business %}
+                <li>{{businesses.name}}</li>
+                <li>{{businesses.description}}</li>
+                <li>{{businesses.url}}</li>
+                {%endfor%}
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h2>Sports news Sources</h2>
+            <ul>
+                {% for businesses in sports %}
+                <li>{{businesses.name}}</li>
+                <li>{{businesses.description}}</li>
+                <li>{{businesses.url}}</li>
+                {%endfor%}
+            </ul>
+        </div>
+
     </div>
+</div>
 {%endblock%}
