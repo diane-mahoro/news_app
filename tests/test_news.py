@@ -1,5 +1,5 @@
 import unittest
-import news
+from .news import News
 News=news.News
 
 class NewsTest(unittest.TestCase):
