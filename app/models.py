@@ -11,10 +11,8 @@ class Sources:
 
 class Articles:
 
-    def __init__(self,source,author,titles,description,url,datepub):
-        self.source=source
+    def __init__(self,id,author,urlToImage,publishedAt):
+        self.id=id
         self.author=author
-        self.titles=titles
-        self.description=description
-        self.url=url
-        self.datepub=datepub
+        self.urlToImage=urlToImage
+        self.publishedAt=publishedAt

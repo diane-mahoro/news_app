@@ -42,17 +42,22 @@ def process_results(news_list):
     return news_results
 # def get_source(id):
 #         get_movie_details
-def get_article(author):
-    get_article_url=article_base_url.format(api_key)
+def get_article(id):
+    get_article_url=article_base_url.format(id,api_key)
 
     with urllib.request.urlopen(get_article_url) as url:
         article_results=None
         getArticle_data=url.read()
         get_article_response=json.loads(getArticle_data)
-        if get_article_response['articles']:
-            article_results_list=get_article_response['articles']
-            article_results=process_articles(article_results_list)
-    return article_results
+        if get_article_response:
+            id=get_article_response.get('id')
+            author=get_article_response.get('author')
+            urlToImage=get_article_response.get('urlToImage')
+            publishedAt=get_article_response.get('publishedAt')
+            articles_object=Articles(id,author,urlToImage,publishedAt)
+    #         article_results_list=get_article_response['articles']
+    #         article_results=process_articles(article_results_list)
+        return articles_object
 
 def process_articles(articles_list):
     article_results=[]
