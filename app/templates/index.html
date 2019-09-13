@@ -7,9 +7,23 @@
     <title>{{ title }}</title>
 </head>
 <body>
-    <h1>News articles</h1>
-    {% for popular_article in general %}
-    <li>{{popular_article.name}}</li>
+    <h1>general articles</h1>
+    <ul>
+    {% for general_article in general %}
+    <li>{{general_article.name}}</li>
     {% endfor %}
+    </ul>
+    <h1>business articles</h1>
+    <ul>
+    {% for business_article in business %}
+    <li>{{business_article.name}}</li>
+    {% endfor %}
+    </ul>
+    <h1>Sport articles</h1>
+    <ul>
+    {% for sport_article in sport %}
+    <li>{{sport_article.name}}</li>
+    {% endfor %}
+    </ul>
 </body>
 </html>
