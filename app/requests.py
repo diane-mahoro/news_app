@@ -1,14 +1,16 @@
 # from app import app
 import urllib.request,json
-from .models import Sources
+from .models import Sources,Articles
 
 # News=models.News
 api_key=None
 base_url=None
+article_base_url=None
 def configure_request(app):
-    global api_key,base_url
+    global api_key,base_url,article_base_url
     api_key = app.config['MY_API_KEY']
     base_url = app.config['NEWS_BASE_URL']
+    article_base_url=app.config['ARTICLES_BASE_URL']
 
 def get_news(category):
     get_news_url=base_url.format(category,api_key)
@@ -40,6 +42,17 @@ def process_results(news_list):
     return news_results
 # def get_source(id):
 #         get_movie_details
+def get_article(author):
+    get_article_url=article_base_url.format(api_key)
+
+    with urllib.request.urlopen(get_article_url) as url:
+        article_results=None
+        getArticle_data=url.read()
+        get_article_response=json.loads(getArticle_data)
+        if get_article_response['articles']:
+            article_results_list=get_article_response['articles']
+            article_results=process_articles(article_results_list)
+    return article_results
 
 
 
