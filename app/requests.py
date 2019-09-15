@@ -62,14 +62,12 @@ def get_article(id):
 def process_articles(articles_list):
     article_results=[]
     for article_item in article_list:
-        source=article_item.get('source')
+        id=article_item.get('id')
         author=article_item.get('author')
-        titles=article_item.get('title')
-        description=article_item.get('description')
-        url=article_item.get('url')
-        datepub=article_item.get('publishedAt')
+        urlToImage=article_item.get('urlToImage')
+        publishedAt=article_item.get('publishedAt')
         if url:
-            articles_object=Articles(source,author,titles,description,url,datepub)
+            articles_object=Articles(id,author,urlToImage,publishedAt)
             article_results.append(articles_object)
 
     return article_results
