@@ -16,8 +16,8 @@ def index():
 
     # sport_articles=get_news('sport')
     return render_template('index.html', title=title,general=general, business=business, sports=sports)
-@main.route('/article/<string:id>')
+@main.route('/articles/<id>')
 def index1(id):
-    article=get_article(id)
+    articles=get_article(id)
     title='news_article'
-    return render_template('article.html',title = title,article=article)
+    return render_template('article.html',title = title,id=id,articles=articles)

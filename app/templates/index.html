@@ -1,40 +1,46 @@
 {% extends 'base.html'%}
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+{% endblock %}
 {%block content%}
 
 
 <div class="container">
 
-    <h1>News categories source</h1>
+    <h1 style="font-family:'Annie Use Your Telescope';font-size: 52px; text-align: center; position: relative; bottom: 200px;">News Sources</h1>
     <div class="row">
         <div class="col-md-4">
-            <h2>TECHNOLOGY News Sources</h2>
+            <h2 style="text-align:center">TECHNOLOGY</h2>
             <ul>
                 {% for general_article in general %}
-                <li> Name:{{general_article.name}}</li>
-                <li> description:{{general_article.description}}</li>
-                <li> url:{{general_article.url}}</li>
-
+                <li style="font-size:35;"> Name:{{general_article.name}}</li>
+                <li style="font-size:35;"> description:{{general_article.description}}</li>
+                <li style="font-size:35;"> url:{{general_article.url}}</li>
+                <a href="/general_article/{{general_article.id}}" style="text-decoration:none; font-size:20px; color:green;">View Articles</a>
                 {% endfor %}
             </ul>
         </div>
         <div class="col-md-4">
-            <h2>Businesses news Sources</h2>
+            <h2 style="text-align:center">Businesses</h2>
             <ul>
                 {% for businesses in business %}
                 <li>{{businesses.name}}</li>
                 <li>{{businesses.description}}</li>
                 <li>{{businesses.url}}</li>
+                <a href="/businesses/{{businesses.id}}" style="text-decoration:none; font-size:20px;color: green">View Articles</a>
                 {%endfor%}
             </ul>
         </div>
         <div class="col-md-4">
-            <h2>Sports news Sources</h2>
+            <h2 style="text-align:center">Sports</h2>
             <ul>
                 {% for businesses in sports %}
-                <li>{{businesses.name}}</li>
-                <li>{{businesses.description}}</li>
-                <li>{{businesses.url}}</li>
-                <a href="/article/{{businesses.id}}">view</a>
+                <li style="font-size:35;">{{businesses.name}}</li>
+                <li style="font-size:35;">{{businesses.description}}</li>
+                <li style="font-size:35;">{{businesses.url}}</li>
+                <a href="/businesses/{{businesses.id}}" style="text-decoration:none; font-size:20px; color: green">View Articles</a>
                 {%endfor%}
             </ul>
         </div>

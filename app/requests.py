@@ -46,18 +46,20 @@ def get_article(id):
     get_article_url=article_base_url.format(id,api_key)
 
     with urllib.request.urlopen(get_article_url) as url:
-        article_results=None
         getArticle_data=url.read()
         get_article_response=json.loads(getArticle_data)
-        if get_article_response:
-            id=get_article_response.get('id')
-            author=get_article_response.get('author')
-            urlToImage=get_article_response.get('urlToImage')
-            publishedAt=get_article_response.get('publishedAt')
-            articles_object=Articles(id,author,urlToImage,publishedAt)
+        article_results=None
+        if get_article_response['articles']:
+                articles_result_list=get_article_response['articles']
+                article_results=process_articles(article_results_list)
+        #     id=get_article_response.get('id')
+        #     author=get_article_response.get('author')
+        #     urlToImage=get_article_response.get('urlToImage')
+        #     publishedAt=get_article_response.get('publishedAt')
+        #     articles_object=Articles(id,author,urlToImage,publishedAt)
     #         article_results_list=get_article_response['articles']
     #         article_results=process_articles(article_results_list)
-        return articles_object
+        return article_results
 
 def process_articles(articles_list):
     article_results=[]
@@ -66,7 +68,9 @@ def process_articles(articles_list):
         author=article_item.get('author')
         urlToImage=article_item.get('urlToImage')
         publishedAt=article_item.get('publishedAt')
-        if url:
+
+        publishedAt=datetime(year=int(date_published[0:4]),month=int(date_published[5:7]),day=int(date_published[8:10]))
+        if urlToImage:
             articles_object=Articles(id,author,urlToImage,publishedAt)
             article_results.append(articles_object)
 
