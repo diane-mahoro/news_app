@@ -34,16 +34,11 @@
                 <li>{{businesses.name}}</li>
                 <li>{{businesses.description}}</li>
                 <li>{{businesses.url}}</li>
+                <a href="/article/{{businesses.id}}">view</a>
                 {%endfor%}
             </ul>
         </div>
 
-    </div>
-    <div class="row">
-    <div class="col-md-6">
-        <p> article {{article.urlToImage}} </p>
-
-    </div>
     </div>
 </div>
 {%endblock%}
