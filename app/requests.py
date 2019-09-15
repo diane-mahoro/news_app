@@ -51,7 +51,7 @@ def get_article(id):
         article_results=None
         if get_article_response['articles']:
                 articles_result_list=get_article_response['articles']
-                article_results=process_articles(article_results_list)
+                article_results=process_articles(articles_result_list)
         #     id=get_article_response.get('id')
         #     author=get_article_response.get('author')
         #     urlToImage=get_article_response.get('urlToImage')
@@ -63,15 +63,14 @@ def get_article(id):
 
 def process_articles(articles_list):
     article_results=[]
-    for article_item in article_list:
+    for article_item in articles_list:
         id=article_item.get('id')
         author=article_item.get('author')
         urlToImage=article_item.get('urlToImage')
         publishedAt=article_item.get('publishedAt')
-
-        publishedAt=datetime(year=int(date_published[0:4]),month=int(date_published[5:7]),day=int(date_published[8:10]))
+        description=article_item.get('description')
         if urlToImage:
-            articles_object=Articles(id,author,urlToImage,publishedAt)
+            articles_object=Articles(id,author,urlToImage,publishedAt,description)
             article_results.append(articles_object)
 
     return article_results

@@ -2,14 +2,28 @@
 
 {%block content%}
 <div class="container">
+    <h1 style="font-family:'Annie Use Your Telescope';font-size: 52px; text-align: center; position: relative; bottom: 200px;">Popular
+        Articles are found here</h1>
+    {% for article in articles %}
     <div class="row">
-        <div class="col-md-6">
-            {% for article in articles %}
-            <p> article {{article.urlToImage}} </p>
-            <p> article {{article.publishedAt}} </p>
-            {%endfor%}
-         
+        <div class="col-md-12">
+            <div class="card" style="background-color:
+            grey;">
+                <div class="col-md-6">
+                    <p>Due on {{article.publishedAt}} </p>
+                    <img src="{{article.urlToImage}}" width="100%" height="300px">
+                </div>
+                <div class="col-md-6">
+                    <h2 style="text-align:center; font-size: 30px; font-style: italic;"> The author is {{article.author}}</h2>
+                    <p style="font-size: 20px;">Description {{article.description}}
+                        <br> <a href="{{article.url}}">Read more...</a>
+                    </p>
+                </div>
+            </div>
         </div>
-        </div>
+
+    </div>
+    <hr>
+    {%endfor%}
 </div>
 {%endblock%}

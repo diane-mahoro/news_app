@@ -2,7 +2,7 @@
 
 {% block styles%}
     {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='static/index.css')}}">
 {% endblock %}
 {%block content%}
 
@@ -18,7 +18,7 @@
                 <li style="font-size:35;"> Name:{{general_article.name}}</li>
                 <li style="font-size:35;"> description:{{general_article.description}}</li>
                 <li style="font-size:35;"> url:{{general_article.url}}</li>
-                <a href="/general_article/{{general_article.id}}" style="text-decoration:none; font-size:20px; color:green;">View Articles</a>
+                <a href="/articles/{{general_article.id}}&40" style="text-decoration:none; font-size:20px; color:green;">View Articles</a>
                 {% endfor %}
             </ul>
         </div>
@@ -29,7 +29,7 @@
                 <li>{{businesses.name}}</li>
                 <li>{{businesses.description}}</li>
                 <li>{{businesses.url}}</li>
-                <a href="/businesses/{{businesses.id}}" style="text-decoration:none; font-size:20px;color: green">View Articles</a>
+                <a href="/articles/{{businesses.id}}&40" style="text-decoration:none; font-size:20px;color: green">View Articles</a>
                 {%endfor%}
             </ul>
         </div>
@@ -40,7 +40,7 @@
                 <li style="font-size:35;">{{businesses.name}}</li>
                 <li style="font-size:35;">{{businesses.description}}</li>
                 <li style="font-size:35;">{{businesses.url}}</li>
-                <a href="/businesses/{{businesses.id}}" style="text-decoration:none; font-size:20px; color: green">View Articles</a>
+                <a href="/articles/{{businesses.id}}&40" style="text-decoration:none; font-size:20px; color: green">View Articles</a>
                 {%endfor%}
             </ul>
         </div>
