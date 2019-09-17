@@ -1,0 +1,20 @@
+<!-- <h1>{{message}} </h1> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to the best Movie Review website</title>
+    {% endif %}
+</head>
+<body>
+    <!-- Popular movie section  -->
+    <h3> Popular Movies</h3>
+     <ul>
+        {% for popular_movie in popular %}
+            <li>{{ popular_movie.title}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
